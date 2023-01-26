@@ -153,6 +153,30 @@ $$
 
 ### Dæmi 5:
   Til að finna út úr því hve mörgmum spurningum má búast við í 80 mínútna langri kennslustund með 38 hópum af nemendum þegar gert ráð fyrir því að það er alveg slembið hvenær hópur kemur með nýja spurningu í liðsnámsstund, óháð því hve langt síðan er hópurinn bar síðast upp spurningu og hve margir hópmeðlimir eru, en hver hópur ber upp eina spurningu á 10 mínútna fresti að jafnaði, þá...
+  
+Það eru 38 hópar sem spurja 1 spurningu á 10 min fresti í 80 min svo fjöldi spurninga er:
+$$
+38*\frac{80}{10}=304\text{ spurningar}.
+$$
+
+Það er spurð $1 spurn/10min = 0.1 spurn/min$ svo lambda er: 
+$$
+\lambda=0.1*80*38 = 304
+$$.
+
+Við getum nota Poisson dreifingu til að gera líkan af fjölda spurninga spurðar af hópunum í 80 min kennslustund þar sem við höfum engin efri mörk á fjölda tilrauna og við vitum meðalfjölda jákvæðra útkoma á tiltekna einingu. Við notum svo massafall Poisson dreifingar til að reikna hverjar líkurnar eru á að mismunandi fjölda spurniga eru spurðar.
+Reiknum líkindadreifinguna að 304 spurningar eru spurðar:
+
+```{r}
+likur <- dpois(304,304)
+likur
+```
+
+eða:
+$P(X=304)=\frac{e^-304*304^304}{304!}=0,023.$
+Þ.a. það eru 2,3% líkur á að spurðar verða 304 spurningar.
+Það tekur að meðaltali 40 sek að svara einn spurningu svo það má búast við að það taki
+$$304*40sek=12160 sek=203 min$$
 
 ### Dæmi 6:
   Að ári væri hægt að skipta upp í eftir fyrstu kennslustundina. Þá væri hægt að taka niður mætingu í fyrsta kennslutímanum 
